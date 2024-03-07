@@ -20,8 +20,20 @@ namespace exercicio4
     {
         public static List<Usuario> OrdenaUsuarios(List<Usuario> array)
         {
-            // Coloque seu código aqui
-            return null;
+            try
+            {
+                //Checa se existe alguém que, agrupando a lista por nome, possui mais de uma aparição
+                if (array.GroupBy(x => x.Nome).Any(x => x.Count() > 1) || array is null) throw new Exception("ERRO");
+
+                List<Usuario> orderedList = array.OrderBy(x => x.Nome).ToList();
+
+                return orderedList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            } 
         }
 
         public static void Main(string[] args)
@@ -29,21 +41,21 @@ namespace exercicio4
             // Exemplos para teste. Sinta-se à vontade para completar com outros testes!
             // Obs: Como a função retorna uma lista de objetos, a resposta abaixo apenas representa o(s) objeto(s) retornados!
 
-            OrdenaUsuarios(new List<Usuario> {
+            var test1 = OrdenaUsuarios(new List<Usuario> {
                 new Usuario("jc@cmu.com.br", "João Carlos"),
                 new Usuario("ana@cmu.com.br", "Ana Maria"),
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Marcelo")}); // new List<Usuario> {Usuario{"Ana Maria"}, Usuario{"João Carlos"}, Usuario{"João Marcelo"}, Usuario{"Pedro Almeida"} }
 
-            OrdenaUsuarios(new List<Usuario> {}); // new List<Usuario> {}
+            var test2 = OrdenaUsuarios(new List<Usuario> {}); // new List<Usuario> {}
 
-            OrdenaUsuarios(new List<Usuario> {
+            var test3 = OrdenaUsuarios(new List<Usuario> {
                 new Usuario("jc@cmu.com.br", "João Carlos"),
                 new Usuario("ana@cmu.com.br", "Ana Maria"),
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Carlos")}); // ERRO
 
-            OrdenaUsuarios(null); // ERRO
+            var test4 = OrdenaUsuarios(null); // ERRO
         }
     }
 }

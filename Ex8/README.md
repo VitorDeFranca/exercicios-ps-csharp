@@ -11,7 +11,7 @@ Modelar, utilizando C#, **de forma orientada a objetos**, o seguinte problema:
 >>- Motos (2 lugares)
 >
 >A empresa, nesse ano, começou a adquirir veículos e devido a isso, entrou em contato com você para pedir ajuda na criação de um sistema básico para cadastrar **TODAS** as informações dos veículos. 
->
+>  
 >O CEO da empresa também disse que te daria um bônus para você caso pensasse em outros campos e funções que poderiam ser incluídos nessa modelagem inicial para implementações futuras.
 >
 >Como os requisitos do sistema ainda não foram 100% definidos, a CMCar solicitou a você que fizesse apenas a modelagem das entidades do problema e fizesse um sistema "alpha" para realizar alguns testes e tirar algumas métricas.

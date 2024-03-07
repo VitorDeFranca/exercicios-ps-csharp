@@ -4,21 +4,60 @@ namespace exercicio6
 {
     public class Program
     {
-        public static List<List<int>> QuebraLista(List<int> array)
+        public static List<List<int>> QuebraLista(List<int> array, int num)
         {
-            // Coloque seu código aqui
-            return null;
+            try
+            {
+                List<List<int>> listOfLists = new List<List<int>>();
+
+                //O quociente é calculado para saber quantas sublistas teremos na lista de listas
+                int quotient = array.Count / num;
+
+                //Elementos serão adicionados à sublistas até que não reste nenhum elemento restante no array original
+                while (array.Count > 0)
+                {
+
+                    if (array.Count < num)
+                    {
+                        //Caso a quantidade de elementos restantes no array original seja menor do que o número
+                        //de elementos que cada sublista deve conter e que foi passado na função,
+                        //existirá uma última sublista com os números restantes.
+                        var subList = array.ToList();
+                        array.RemoveRange(0, array.Count);
+                        listOfLists.Add(subList);
+                    }
+                    else
+                    {
+                        //Serão geradas N (quociente) sublistas de acordo com a quantidade de elementos cada
+                        //(num) passadas na função.
+                        for (int i = 0; i < quotient; i++)
+                        {
+                            var subList = array.Take(num).ToList();
+                            array.RemoveRange(0, num);
+
+                            listOfLists.Add(subList);
+                        }
+                    }
+                }
+
+                return listOfLists;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public static void Main(string[] args)
         {
             // Exemplos para teste. Sinta-se à vontade para completar com outros testes!
 
-            QuebraLista(new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}, 3); // new List<List<int>>{new List<int>{1, 2, 3}, new List<int>{4, 5, 6}, new List<int>{7, 8, 9}}
-            QuebraLista(new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3); // new List<List<int>>{new List<int>{1, 2, 3}, new List<int>{4, 5, 6}, new List<int>{7, 8, 9}, new List<int>{10}}
-            QuebraLista(new List<int>{2, 4, 6, 8, 10, 12, 14, 16}, 4); // new List<List<int>>{new List<int>{2, 4, 6, 8}, new List<int>{10, 12, 14, 16}}
-            QuebraLista(new List<int>{2, 4, 6, 8, 10, 12, 14, 16}, 40); // new List<List<int>>{new List<int>{2, 4, 6, 8, 10, 12, 14, 16}}
-            QuebraLista(new List<int>{}, 4); // new List<int>{}
+            var test1 = QuebraLista(new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}, 3); // new List<List<int>>{new List<int>{1, 2, 3}, new List<int>{4, 5, 6}, new List<int>{7, 8, 9}}
+            var test2 = QuebraLista(new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3); // new List<List<int>>{new List<int>{1, 2, 3}, new List<int>{4, 5, 6}, new List<int>{7, 8, 9}, new List<int>{10}}
+            var test3 = QuebraLista(new List<int>{2, 4, 6, 8, 10, 12, 14, 16}, 4); // new List<List<int>>{new List<int>{2, 4, 6, 8}, new List<int>{10, 12, 14, 16}}
+            var test4 = QuebraLista(new List<int>{2, 4, 6, 8, 10, 12, 14, 16}, 40); // new List<List<int>>{new List<int>{2, 4, 6, 8, 10, 12, 14, 16}}
+            var test5 = QuebraLista(new List<int>{}, 4); // new List<int>{}
         }
     }
 }

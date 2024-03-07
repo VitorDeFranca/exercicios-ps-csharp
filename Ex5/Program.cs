@@ -20,8 +20,22 @@ namespace exercicio4
     {
         public static List<Usuario> IdentificaDuplicados(List<Usuario> array)
         {
-            // Coloque seu código aqui
-            return null;
+            try
+            {
+                if (array is null) throw new Exception("ERRO");
+
+                //SelectMany() é usado para "desagrupar" os grupos formados pelo GroupBy()
+                List<Usuario> repeatedEmailsList = array.GroupBy(x => x.Email)
+                    .Where(x => x.Count() > 1)
+                    .SelectMany(g => g)
+                    .ToList();
+
+                return repeatedEmailsList;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public static void Main(string[] args)
@@ -29,21 +43,21 @@ namespace exercicio4
             // Exemplos para teste. Sinta-se à vontade para completar com outros testes!
             // Obs: Como a função retorna uma lista de objetos, a resposta abaixo apenas representa o(s) objeto(s) retornados!
 
-            IdentificaDuplicados(new List<Usuario> {
+            var test1 = IdentificaDuplicados(new List<Usuario> {
                 new Usuario("jc@cmu.com.br", "João Carlos"),
                 new Usuario("ana@cmu.com.br", "Ana Maria"),
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Marcelo")}); // new List<Usuario> {}
 
-            IdentificaDuplicados(new List<Usuario> {
+            var test2 = IdentificaDuplicados(new List<Usuario> {
                 new Usuario("joaozin@cmu.com.br", "João Carlos"),
                 new Usuario("ana@cmu.com.br", "Ana Maria"),
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Marcelo")}); // new List<Usuario> {Usuario{"João Carlos"}, Usuario{"João Marcelo"}}
 
-            IdentificaDuplicados(new List<Usuario> {}); // new List<Usuario> {}
+            var test3 = IdentificaDuplicados(new List<Usuario> {}); // new List<Usuario> {}
                 
-            IdentificaDuplicados(null); // ERRO
+            var test4 = IdentificaDuplicados(null); // ERRO
         }
     }
 }
