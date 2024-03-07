@@ -6,7 +6,6 @@ namespace exercicio1
 {
     public class Program
     {
-        Stopwatch sw = new Stopwatch();
         //Solução utilizando LINQ
         public static List<string> FiltraTerminadasEmALINQ(List<string> array)
         {
