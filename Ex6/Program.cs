@@ -54,10 +54,61 @@ namespace exercicio6
             // Exemplos para teste. Sinta-se à vontade para completar com outros testes!
 
             var test1 = QuebraLista(new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}, 3); // new List<List<int>>{new List<int>{1, 2, 3}, new List<int>{4, 5, 6}, new List<int>{7, 8, 9}}
+            foreach (var sublist in test1)
+            {
+                foreach (var item in sublist)
+                {
+                    Console.Write($"{item} ");
+                }
+                Console.Write(" | ");
+            }
+            Console.WriteLine();
+
             var test2 = QuebraLista(new List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3); // new List<List<int>>{new List<int>{1, 2, 3}, new List<int>{4, 5, 6}, new List<int>{7, 8, 9}, new List<int>{10}}
+            foreach (var sublist in test2)
+            {
+                foreach (var item in sublist)
+                {
+                    Console.Write($"{item} ");
+                }
+                Console.Write(" | ");
+            }
+            Console.WriteLine();
+
             var test3 = QuebraLista(new List<int>{2, 4, 6, 8, 10, 12, 14, 16}, 4); // new List<List<int>>{new List<int>{2, 4, 6, 8}, new List<int>{10, 12, 14, 16}}
+            foreach (var sublist in test3)
+            {
+                foreach (var item in sublist)
+                {
+                    Console.Write($"{item} ");
+                }
+                Console.Write(" | ");
+            }
+            Console.WriteLine();
+
             var test4 = QuebraLista(new List<int>{2, 4, 6, 8, 10, 12, 14, 16}, 40); // new List<List<int>>{new List<int>{2, 4, 6, 8, 10, 12, 14, 16}}
+            foreach (var sublist in test4)
+            {
+                foreach (var item in sublist)
+                {
+                    Console.Write($"{item} ");
+                }
+                Console.Write(" | ");
+            }
+            Console.WriteLine();
+
             var test5 = QuebraLista(new List<int>{}, 4); // new List<int>{}
+            foreach (var sublist in test5)
+            {
+                foreach (var item in sublist)
+                {
+                    Console.Write($"{item} ");
+                }
+                Console.Write(" | ");
+            }
+            Console.WriteLine();
+
+            Console.ReadKey();
         }
     }
 }

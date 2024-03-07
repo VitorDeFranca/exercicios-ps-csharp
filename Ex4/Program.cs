@@ -31,7 +31,7 @@ namespace exercicio4
             }
             catch (Exception)
             {
-
+                Console.WriteLine("ERRO");
                 throw;
             } 
         }
@@ -46,8 +46,17 @@ namespace exercicio4
                 new Usuario("ana@cmu.com.br", "Ana Maria"),
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Marcelo")}); // new List<Usuario> {Usuario{"Ana Maria"}, Usuario{"João Carlos"}, Usuario{"João Marcelo"}, Usuario{"Pedro Almeida"} }
+            foreach (var usuario in test1)
+            {
+                Console.Write("| " + usuario.Nome);
+            }
+            Console.WriteLine();
 
             var test2 = OrdenaUsuarios(new List<Usuario> {}); // new List<Usuario> {}
+            if (test2.Count() == 0)
+            {
+                Console.WriteLine("{}");
+            }
 
             var test3 = OrdenaUsuarios(new List<Usuario> {
                 new Usuario("jc@cmu.com.br", "João Carlos"),
@@ -55,7 +64,11 @@ namespace exercicio4
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Carlos")}); // ERRO
 
+
             var test4 = OrdenaUsuarios(null); // ERRO
+
+            Console.ReadKey();
+
         }
     }
 }

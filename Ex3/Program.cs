@@ -35,7 +35,7 @@
             }
             catch (Exception)
             {
-
+                Console.WriteLine("ERRO");
                 throw;
             }
 
@@ -46,11 +46,19 @@
             // Exemplos para teste. Sinta-se à vontade para completar com outros testes!
 
             var test1 = ContaDias("2023-02-01", "2023-02-02"); // 1
+            Console.WriteLine("Diferença de dias entre 2023-02-01 e 2023-02-02: " + test1);
             var test2 = ContaDias("2023-02-01", "2023-02-15"); // 14
+            Console.WriteLine("Diferença de dias entre 2023-02-01 e 2023-02-15: " + test2);
             var test3= ContaDias("2023-02-01", "2022-02-01"); // 365
+            Console.WriteLine("Diferença de dias entre 2023-02-01 e 2022-02-01: " + test3);
             var test4 = ContaDias("2022-02-01", "2023-02-01"); // 365
+            Console.WriteLine("Diferença de dias entre 2022-02-01 e 2023-02-01: " + test4);
             var test5 = ContaDias("2023-02-01", "2023-02-01"); // 0
+            Console.WriteLine("Diferença de dias entre 2023-02-01 e 2023-02-01: " + test5);
             var test6 = ContaDias("2023-02-01", "2023/02/01"); // ERRO
+            Console.WriteLine("Diferença de dias entre 2023-02-01 e 2023/02/01: " + test6);
+
+            Console.ReadKey();
         }
     }
 }

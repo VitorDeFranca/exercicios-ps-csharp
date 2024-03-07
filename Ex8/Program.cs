@@ -57,29 +57,29 @@ namespace exercicio8
 
             // a) A quantidade de veículos da frota 1. Resposta: 10
             int qtdVeiculosFrota1 = frota1.Veiculos.Count();
-            Console.Write("a) ");
+            Console.Write("a) Quantidade de veículos da frota 1: ");
             Console.WriteLine(qtdVeiculosFrota1);
 
             // b) A quantidade de carros com 4 portas na empresa. Resposta: 3
             int qtdCarros = frota1.Veiculos.Where(v => (v.QtdPortasSimples + v.QtdPortasCorrer) == 4).Count() +
                 frota2.Veiculos.Where(v => (v.QtdPortasSimples + v.QtdPortasCorrer) == 4).Count();
-            Console.Write("b) ");
+            Console.Write("b) Quantidade de carros com 4 portas na empresa: ");
             Console.WriteLine(qtdCarros);
 
 
             // c) O total de lugares (capacidade) disponíveis da frota 1. Resposta: 82
             int capacidadeTotalFrota1 = frota1.Veiculos.Sum(v => v.QtdLugares);
-            Console.Write("c) ");
+            Console.Write("c) O total de lugares (capacidade) disponíveis da frota 1: ");
             Console.WriteLine(capacidadeTotalFrota1);
 
             // d) A média de quilômetros rodados de todos os veículos da frota 2. Resposta: 24.487,5
             double mediaKmFrota2 = frota2.Veiculos.Average(v => v.Kilometragem);
-            Console.Write("d) ");
+            Console.Write("d) A média de quilômetros rodados de todos os veículos da frota 2: ");
             Console.WriteLine(mediaKmFrota2);
 
             // e) O(s) veículo(s) mais novo(s) da frota 1 (retornar em forma de lista, pois pode haver mais de um). Resposta: Veiculo 4 e Veiculo 10
             var maisNovosFrota1 = frota1.Veiculos.Where(v => Convert.ToInt32(v.Ano) == frota1.Veiculos.Max(v => Convert.ToInt32(v.Ano)));
-            Console.Write("e) ");
+            Console.Write("e) O(s) veículo(s) mais novo(s) da frota 1: ");
             foreach (var veiculo in maisNovosFrota1)
             {
                 Console.Write("| Veiculo "+ veiculo.VeiculoId);
@@ -89,7 +89,7 @@ namespace exercicio8
 
             // f) O(s) veículo(s) mais rodado(s) da frota 2 (retornar em forma de lista, pois pode haver mais de um). Resposta: Veiculo 11 e Veiculo 14
             var maisRodados = frota2.Veiculos.Where(v => v.Kilometragem == frota2.Veiculos.Max(v => v.Kilometragem));
-            Console.Write("f) ");
+            Console.Write("f) O(s) veículo(s) mais rodado(s) da frota 2: ");
             foreach (var veiculo in maisRodados)
             {
                 Console.Write("| Veiculo " + veiculo.VeiculoId);
@@ -99,7 +99,7 @@ namespace exercicio8
             // g) O(s) veículo(s) mais antigo(s) da empresa (retornar em forma de lista, pois pode haver mais de um). Resposta: Veiculo 5
             var todosVeiculosEmpresa = frota1.Veiculos.Concat(frota2.Veiculos);
             var maisAntigosEmpresa = todosVeiculosEmpresa.Where(v => Convert.ToInt32(v.Ano) == todosVeiculosEmpresa.Min(v => Convert.ToInt32(v.Ano)));
-            Console.Write("g) ");
+            Console.Write("g) O(s) veículo(s) mais antigo(s) da empresa: ");
             foreach (var veiculo in maisAntigosEmpresa)
             {
                 Console.Write("| Veiculo " + veiculo.VeiculoId);
@@ -124,7 +124,7 @@ namespace exercicio8
                 frotaMaisVans.Add(frota2);
             }
 
-            Console.Write("h) ");
+            Console.Write("h) A frota com a maior quantidade de vans: ");
             foreach (var frota in frotaMaisVans)
             {
                 Console.WriteLine("Frota "+ frota.FrotaId);
@@ -133,6 +133,7 @@ namespace exercicio8
             Console.ReadKey();
             
         }
+
     }
 }
 

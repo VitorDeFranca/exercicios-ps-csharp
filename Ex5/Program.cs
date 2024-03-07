@@ -34,6 +34,7 @@ namespace exercicio4
             }
             catch (Exception)
             {
+                Console.WriteLine("ERRO");
                 throw;
             }
         }
@@ -48,16 +49,34 @@ namespace exercicio4
                 new Usuario("ana@cmu.com.br", "Ana Maria"),
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Marcelo")}); // new List<Usuario> {}
+            if (test1.Count() == 0)
+            {
+                Console.WriteLine("{}");
+            }
 
             var test2 = IdentificaDuplicados(new List<Usuario> {
                 new Usuario("joaozin@cmu.com.br", "João Carlos"),
                 new Usuario("ana@cmu.com.br", "Ana Maria"),
                 new Usuario("pedro@cmu.com.br", "Pedro Almeida"),
                 new Usuario("joaozin@cmu.com.br", "João Marcelo")}); // new List<Usuario> {Usuario{"João Carlos"}, Usuario{"João Marcelo"}}
+            foreach (var usuario in test2)
+            {
+                Console.Write("| " + usuario.Nome);
+            }
+            Console.WriteLine();
 
             var test3 = IdentificaDuplicados(new List<Usuario> {}); // new List<Usuario> {}
-                
+            if (test3.Count() == 0)
+            {
+                Console.WriteLine("{}");
+            }
+
             var test4 = IdentificaDuplicados(null); // ERRO
+            foreach (var usuario in test4)
+            {
+                Console.WriteLine("| " + usuario.Nome);
+            }
+            Console.WriteLine();
         }
     }
 }
